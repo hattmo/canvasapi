@@ -14,6 +14,7 @@ export default (hostname: string, key: string) => {
         }
         const req = https.request(`${hostname}${path}${paramString}`, {
             headers: {
+                "Accept": "application/json+canvas-string-ids",
                 "Authorization": `Bearer ${key}`,
                 "Content-type": body !== undefined ? "application/json" : undefined,
                 ...headers,
