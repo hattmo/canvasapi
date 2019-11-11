@@ -1,4 +1,4 @@
-import webRequest from "./webRequest";
+import { RequestFunction } from "./helpers/ObjectDef";
 
 interface DomainLookup {
     name: string;
@@ -7,16 +7,22 @@ interface DomainLookup {
     authentication_provider: string | null;
 }
 
-export default (host: string, key: string) => {
-    const request = webRequest(host, key);
+export default (request: RequestFunction) => {
+
     return {
-        searchAccountDomains: async (params?: {
-            name?: string,
-            domain?: string,
-            latitude?: number,
-            longitude?: number,
-        }): Promise<DomainLookup> => {
-            return await request(`/api/v1/accounts/search`, params) as DomainLookup;
+        searchAccountDomains: async (
+            params?: {
+                name?: string,
+                domain?: string,
+                latitude?: number,
+                longitude?: number,
+            },
+        ): Promise<DomainLookup> => {
+            return await request(
+                "GET",
+                `/api/v1/accounts/search`,
+                params,
+            ) as DomainLookup;
         },
     };
 };

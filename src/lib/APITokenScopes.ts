@@ -1,16 +1,13 @@
-import webRequest from "./webRequest";
+import { RequestFunction, Scope } from "./helpers/ObjectDef";
 
-interface Scope {
-    resource: string;
-    resource_name: string;
-    controller: string;
-}
-
-export default (host: string, key: string) => {
-    const request = webRequest(host, key);
+export default (request: RequestFunction) => {
     return {
         listScopes: async (accountId: string, params?: { group_by?: string }): Promise<Scope> => {
-            return await request("GET", `/api/v1/accounts/${accountId}/scopes`, params) as Scope;
+            return await request(
+                "GET",
+                `/api/v1/accounts/${accountId}/scopes`,
+                params,
+            ) as Scope;
         },
     };
 };

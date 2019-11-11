@@ -1,10 +1,18 @@
 // tslint:disable: no-unused-expression
-import { expect } from "chai";
+// tslint:disable: no-console
 import index from "../src/index";
+import fs from "fs";
 describe("Tests", () => {
     it("Should have tests", async () => {
-        const api = index("lms.au.af.edu", "password");
-        const scope = await api.APITokenScopes.listScopes("1234");
-        scope.
+        try {
+
+            const session = index("lms.au.af.edu", "04NBxWuN4VTf20mmxnepYVf27rIJ0X3dMmVsJjv387RaZ6Ir6Tun0Y8YfW3FKKpA", {
+                ca: fs.readFileSync("./test/dodrootca.cer"),
+            });
+            const res = await session.Users.ListUsersInAccount("5726");
+            console.log(res);
+        } catch (error) {
+            console.error("Error:\n" + error);
+        }
     });
 });
