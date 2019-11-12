@@ -7,7 +7,7 @@
     "scripts": {
         "test": "mocha -r ts-node/register --bail ./test/**/*Test.ts",
         "build": "tsc --watch --project .",
-        "prepublish": "tsc --project ."
+        "prepare": "tsc --project ."
     },
     "main": "./dist/index.js",
     "devDependencies": {
