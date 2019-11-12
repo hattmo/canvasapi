@@ -12,16 +12,16 @@ export interface User {
     "sortable_name": string;
     "short_name": string;
     "sis_user_id": string;
-    "sis_import_id": string;
-    "integration_id": string;
+    "sis_import_id"?: string;
+    "integration_id"?: string;
     "login_id": string;
-    "avatar_url": string;
-    "enrollments": null;
+    "avatar_url"?: string;
+    "enrollments"?: null;   // Enrolments Needs to be figured out
     "email": string;
-    "locale": string;
-    "last_login": string;
-    "time_zone": string;
-    "bio": string;
+    "locale"?: string;
+    "last_login"?: string;
+    "time_zone"?: string;
+    "bio"?: string;
 }
 
 export interface Scope {
@@ -31,13 +31,13 @@ export interface Scope {
 }
 
 export interface AccountNotification {
-    subject: string;
-    message: string;
-    start_at: string;
-    end_at: string;
-    icon: string;
-    roles: string[];
-    role_ids: string[];
+    "subject": string;
+    "message": string;
+    "start_at": string;
+    "end_at": string;
+    "icon": string;
+    "roles": string[];
+    "role_ids": string[];
 }
 
 export interface Grade {
@@ -97,4 +97,11 @@ export interface Enrollments {
     "current_period_unposted_final_score": string;
     "current_period_unposted_current_grade": string;
     "current_period_unposted_final_grade": string;
+}
+
+export interface DomainLookup {
+    "name": string;
+    "domain": string;
+    "distance": string | null;
+    "authentication_provider": string | null;
 }

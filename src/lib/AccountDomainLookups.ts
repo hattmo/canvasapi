@@ -1,11 +1,4 @@
-import { RequestFunction } from "./helpers/ObjectDef";
-
-interface DomainLookup {
-    name: string;
-    domain: string;
-    distance: string | null;
-    authentication_provider: string | null;
-}
+import { RequestFunction, DomainLookup } from "./helpers/ObjectDef";
 
 export default (request: RequestFunction) => {
 

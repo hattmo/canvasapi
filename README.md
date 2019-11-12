@@ -2,7 +2,7 @@
 
 ## About
 
-Easy access to the Canvas API
+Easy access to the Canvas API through a NodeJS library.
 
 ## Author
 
